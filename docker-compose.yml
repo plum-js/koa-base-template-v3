@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: general-user
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: sample-dev
+    volumes:
+      - ./docker-entrypoint-initdb/mongo.init.js:/docker-entrypoint-initdb.d/mongo.init.js:ro
+      - ./volumes/mongo/data:/data/db
+  redis:
+    image: redis:latest
+    command: redis-server --requirepass 123456
+    ports:
+      - 6379:6379
+    volumes:
+      - ./volumes/redis/data:/data

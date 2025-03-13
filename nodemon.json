@@ -1,0 +1,21 @@
+{
+  "restartable": "rs",
+  "execMap": {
+    "js": "node"
+  },
+  "watch": [
+    "src"
+  ],
+  "ignore": [
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts"
+  ],
+  "env": {
+    "DOMAIN": "localhost",
+    "PORT": "3000",
+    "MONGO_URI": "mongodb://localhost:27017/koa-base-template",
+    "ENVIRONMENT": "local"
+  },
+  "ext": "js json ts",
+  "exec": "ts-node ./src/index.ts"
+}
